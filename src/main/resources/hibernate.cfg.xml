@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="connection.driver">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://192.168.149.131:7901/spring_data_jpa?useSSL=FALSE</property>
+
+
+        <!-- 选择数据库方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <!-- 是否在控制台打印sql语句 -->
+        <property name="show_sql">true</property>
+        <!-- 是否格式化sql语句，也就是是否使sql语句按标准规范打印出来 -->
+        <property name="format_sql">true</property>
+        <!-- 表的生成策略;
+        none:不自动生成;
+        update:没有的表会创建,已经存在的表会检查更新;
+        create:每次都会将表重新生成一遍 -->
+        <property name="hbm2ddl.auto">create</property>
+        <!-- 指定具体的pojo类路径,指定了路径后相当于被hibernate接管 -->
+        <mapping class="com.cnsukidayo.hibernate.Customer"/>
+    </session-factory>
+</hibernate-configuration>
