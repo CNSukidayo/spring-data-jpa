@@ -23,7 +23,7 @@ public class JPATest {
     }
 
     @Test
-    public void testC() {
+    public void testC() { 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
