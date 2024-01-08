@@ -2,6 +2,7 @@ package com.cnsukidayo.jpa.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -22,6 +23,7 @@ import java.util.Optional;
  */
 @Configuration
 @EnableJpaRepositories(basePackages = "com.cnsukidayo.jpa.repository")
+@ComponentScan(basePackages = "com.cnsukidayo.jpa")
 @EnableTransactionManagement
 @EnableJpaAuditing
 public class SpringDataJPAConfig {
@@ -30,9 +32,9 @@ public class SpringDataJPAConfig {
     public DataSource dataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setUsername("root");
-        druidDataSource.setPassword("sukidayo");
+        druidDataSource.setPassword("root");
         druidDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        druidDataSource.setUrl("jdbc:mysql://192.168.230.128:7901/spring_data_jpa?useSSL=FALSE");
+        druidDataSource.setUrl("jdbc:mysql://192.168.149.131:7901/spring_data_jpa?useSSL=FALSE");
         return druidDataSource;
     }
 

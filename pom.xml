@@ -12,6 +12,7 @@
         <module>jpa-hibernate</module>
         <module>spring-data-jpa</module>
         <module>spring-data-jpa-relation</module>
+        <module>springboot-jpa</module>
     </modules>
 
     <properties>

@@ -40,4 +40,15 @@ public class JPAProxyTest {
         System.out.println("输出结果:" + customer);
     }
 
+    @Test
+    public void testS() throws ClassNotFoundException {
+        // 创建Spring容器
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(SpringDataJPAConfig.class);
+        CustomerRepository customerRepository = annotationConfigApplicationContext.getBean(CustomerRepository.class);
+        Optional<Customer> customer = customerRepository.findById(1L);
+        System.out.println(customer);
+    }
+
+
+
 }

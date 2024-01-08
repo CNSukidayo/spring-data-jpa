@@ -1,0 +1,32 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update # 表生成策略
+      naming:
+        implicit-strategy:
+        #物理命命名策略 一共五种策略
+        # ImplicitNamingStrategyJpaCompliantImpl:默认的命名策略,兼容JPA 2.0的规范
+        # ImplicitNamingStrategyLegacyHbmImpl 兼容Hibernate老版本中的命名规范
+        # ImplicitNamingStrategyLegacyJpaImpl 兼容JPA 1.0规范中的命名规范
+        # ImplicitNamingStrategyComponentPathImpl 大部分与ImplicitNamingStrategyJpaCompliantImpl
+        # 但是对于@Embedded等注解标志的,组件处理是通过使用attributePath完成的
+        # ImplicitNamingStrategyJpaCompliantImpl 默认,上面的四种策略均继承自它
+        physical-strategy:  #隐式的命名策略,当使用@Column和@Table显示指定后改配置无效
+        # PhysicalNamingStrategyStandardImpl 直接映射不做过多处理
+        # SpringPhysicalNamingStrategy 表名,字段为小写,当有大写字母的时候会添加下划线分隔符号
+      use-new-id-generator-mappings:  # 是否为Auto、table、sequence使用hibernate较新的ID生成策略
+
+    show-sql: true # 是否在控制台显示SQL(日志是否记录SQL)
+    generate-ddl: true #表的生成策略(如果是true则会生成,否则不会生成),和ddl-auto这两个二选一使用即可
+    mapping-resources: # 设置JPA的配置文件persistence.xml文件的路径的
+    open-in-view:
+    # 将OpenEntityManagerInViewInterceptor绑定到一个线程,默认是true;
+    # 使用true之后当一个线程进入之后会将session绑定到该线程,则该线程在执行完毕之前都可以拥有session对象
+    properties: #设置JPA框架的各种配置,在这里可以设置hibernate它自已的各种配置
+      hibernate:
+        format_sql: true # 例如格式化SQL
+  datasource:
+    url: jdbc:mysql://192.168.149.131:7901/spring_data_jpa?useSSL=FALSE
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
